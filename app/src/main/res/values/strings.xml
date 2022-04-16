@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">smile_ukraine</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_your_friend">Add friend</string>
+    <string name="friend">Friends</string>
+    <string name="language">Language</string>
+    <string name="change_name">Change name</string>
+    <string name="exit">Exit</string>
+</resources>
