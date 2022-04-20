@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Settings_activity">
+    tools:context=".Settings_activity"
+    android:background="@color/backgroud">
 
     <ImageButton
         android:id="@+id/button_back_sett"
@@ -27,9 +28,9 @@
         android:layout_marginHorizontal="60dp">
 
         <Button
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="20dp"
-            android:backgroundTint="@color/light_green"
+            android:backgroundTint="@color/blue_ou"
             android:padding="15dp"
             android:layout_marginVertical="10dp"
             android:id="@+id/change_yname"
@@ -39,9 +40,9 @@
             />
 
         <Button
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="20dp"
-            android:backgroundTint="@color/light_green"
+            android:backgroundTint="@color/blue_ou"
             android:padding="15dp"
             android:layout_marginVertical="10dp"
             android:id="@+id/change_language"
@@ -54,9 +55,9 @@
     </LinearLayout>
 
     <Button
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20dp"
-        android:backgroundTint="@color/light_green"
+        android:backgroundTint="@color/blue_ou"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/exit"

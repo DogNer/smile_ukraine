@@ -16,5 +16,12 @@
     <style name="Button.White" parent="ThemeOverlay.AppCompat">
         <item name="colorAccent">@android:color/white</item>
     </style>
+    <style name="Theme.Smile_ukraine.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Smile_ukraine.AppBarOverlay"
+        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Smile_ukraine.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
