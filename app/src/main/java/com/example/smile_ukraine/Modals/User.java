@@ -1,9 +1,10 @@
 package com.example.smile_ukraine.Modals;
 
+import androidx.navigation.Navigator;
+
 public class User {
     private String name, email, password, phone;
 
-    public User(){}
 
     public User(String name, String email, String password, String phone) {
         this.name = name;
@@ -11,6 +12,11 @@ public class User {
         this.password = password;
         this.phone = phone;
     }
+
+    public User() {
+
+    }
+
 
     public String getName() {
         return name;
@@ -43,4 +49,5 @@ public class User {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
 }

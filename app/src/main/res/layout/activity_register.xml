@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".RegisterActivity"
-    android:id="@+id/register_window">
+    tools:context=".Register_activity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textemail"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:id="@+id/email"
             />
 
@@ -71,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textpassword"
-            android:inputType="textPersonName" />
+            android:inputType="textPassword" />
 
         <TextView
             android:layout_marginTop="20dp"
@@ -86,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textPhoneNumber"
-            android:inputType="textPersonName"
+            android:inputType="phone"
             android:id="@+id/phoneNumber"
             />
 
@@ -102,4 +101,5 @@
 
 
     </LinearLayout>
-</RelativeLayout>
+
+</ScrollView>

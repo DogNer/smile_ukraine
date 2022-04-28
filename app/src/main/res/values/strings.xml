@@ -14,4 +14,8 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="welcome">Welcome to app</string>
+    <string name="sad_emotion">Sad</string>
+    <string name="norm_emotion">Normal</string>
+    <string name="happy_emotion">Happy</string>
+    <string name="choose_emotion">Choose your emotion</string>
 </resources>

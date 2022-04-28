@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardElevation="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/paytone_one"
+        android:text="@string/choose_emotion"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:background="@color/yellow_lite"
+        android:padding="5dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="45dp">
+
+        <Button
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/button_style"
+            android:backgroundTintMode="add"
+            android:fontFamily="@font/paytone_one"
+            android:text="@string/sad_emotion" />
+
+        <Button
+            android:fontFamily="@font/paytone_one"
+            android:layout_marginVertical="2dp"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="@string/norm_emotion"
+            android:backgroundTint="@color/backgroud"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:fontFamily="@font/paytone_one"
+            android:layout_marginVertical="2dp"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="@string/happy_emotion"
+            android:backgroundTint="@color/backgroud"
+            android:textColor="@color/black"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
