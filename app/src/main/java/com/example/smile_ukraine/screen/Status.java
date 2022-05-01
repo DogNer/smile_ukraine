@@ -65,7 +65,7 @@ public class Status extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_status, container, false);
-        ImageButton button_set = (ImageButton) view.findViewById(R.id.button_ss);
+        ImageButton button_set = (ImageButton) view.findViewById(R.id.button_sett);
         button_set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
