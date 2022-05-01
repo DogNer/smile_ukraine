@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "75423632053",
+    "project_id": "smile-ua-d589c",
+    "storage_bucket": "smile-ua-d589c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:75423632053:android:770b5d79f8d0326d164cfc",
+        "android_client_info": {
+          "package_name": "com.example.smile_ukraine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "75423632053-to0t2meo2a0oo92fbi04olj3qadt8mb7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smile_ukraine",
+            "certificate_hash": "8355ab1b120b6e3283a30cef31c925b33a4b330d"
+          }
+        },
+        {
+          "client_id": "75423632053-jsq5qgdepgm52se7lge5mrfc4aj36lmt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIROrMDLnLZ9EFrio0R1TAEs2Bu0DZ8FY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "75423632053-jsq5qgdepgm52se7lge5mrfc4aj36lmt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

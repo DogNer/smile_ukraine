@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".RegisterActivity"
+    android:id="@+id/register_window">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="20dp">
+
+        <TextView
+            android:id="@+id/register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_marginTop="80dp"
+            android:layout_below="@+id/register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter your name*"
+            android:textSize="18dp"
+            android:id="@+id/textname"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textname"
+            android:inputType="textPersonName"
+            android:id="@+id/user_name"
+            />
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter email*"
+            android:textSize="18dp"
+            android:id="@+id/textemail"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textemail"
+            android:inputType="textPersonName"
+            android:id="@+id/email"
+            />
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter password*"
+            android:textSize="18dp"
+            android:id="@+id/textpassword"/>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textpassword"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter phone number*"
+            android:textSize="18dp"
+            android:id="@+id/textPhoneNumber"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textPhoneNumber"
+            android:inputType="textPersonName"
+            android:id="@+id/phoneNumber"
+            />
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/phoneNumber"
+            android:layout_marginTop="160dp"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:text="Register"
+            android:id="@+id/regist_button"/>
+
+
+    </LinearLayout>
+</RelativeLayout>
