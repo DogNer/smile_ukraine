@@ -26,29 +26,39 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class first_loadig_menu extends AppCompatActivity {
 
-    Button buttonLogn, buttonRegister;
-    FirebaseAuth auth;
-    FirebaseDatabase db;
-    DatabaseReference users;
+    Button buttonLog, buttonRegister;
     FirebaseUser firebaseUser;
 
     RelativeLayout root;
+
+    /*@Override
+    protected void onStart() {
+        super.onStart();
+
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (firebaseUser != null){
+            startActivity(new Intent(first_loadig_menu.this, MainActivity.class));
+            finish();
+        }
+    }*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_loadig_menu);
 
-        Button buttonLogin = findViewById(R.id.ButtonLogn);
+        buttonLog = findViewById(R.id.ButtonLogn);
 
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+        buttonLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(first_loadig_menu.this, MainActivity.class);
+                Intent intent = new Intent(first_loadig_menu.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
 
-        Button buttonRegister = findViewById(R.id.ButtonRegister);
+        buttonRegister = findViewById(R.id.ButtonRegister);
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
