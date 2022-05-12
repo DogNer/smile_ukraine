@@ -25,12 +25,11 @@
         android:layout_marginTop="45dp">
 
         <Button
+            style="@style/AppTheme.RoundedCornerMaterialButton"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="2dp"
-            android:background="@drawable/button_style"
-            android:backgroundTintMode="add"
             android:fontFamily="@font/paytone_one"
             android:text="@string/sad_emotion" />
 

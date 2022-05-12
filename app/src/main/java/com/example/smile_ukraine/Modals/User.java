@@ -3,27 +3,18 @@ package com.example.smile_ukraine.Modals;
 import androidx.navigation.Navigator;
 
 public class User {
-    private String name, email, password, phone;
+    private String id;
+    private String username;
+    private String phone_number;
+    private String bio;
+    private String email;
 
-
-    public User(String name, String email, String password, String phone) {
-        this.name = name;
+    public User(String id, String username, String phone_number, String bio, String email) {
+        this.id = id;
+        this.username = username;
+        this.phone_number = phone_number;
+        this.bio = bio;
         this.email = email;
-        this.password = password;
-        this.phone = phone;
-    }
-
-    public User() {
-
-    }
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getEmail() {
@@ -34,20 +25,38 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public User() {
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public String getId() {
+        return id;
     }
 
-    public String getPhone() {
-        return phone;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public String getUsername() {
+        return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
 }

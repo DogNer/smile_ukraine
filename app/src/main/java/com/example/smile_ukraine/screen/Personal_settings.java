@@ -1,20 +1,29 @@
 package com.example.smile_ukraine.screen;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.smile_ukraine.Modals.User;
+import com.example.smile_ukraine.MenuInSett.ProfileActivity;
 import com.example.smile_ukraine.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Personal_settings#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Personal_settings extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -26,18 +35,6 @@ public class Personal_settings extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Personal_settings() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Personal_settings.
-     */
     // TODO: Rename and change types and number of parameters
     public static Personal_settings newInstance(String param1, String param2) {
         Personal_settings fragment = new Personal_settings();
@@ -47,6 +44,13 @@ public class Personal_settings extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
+    TextView username, emailUser, numberUser, editProfile, editLanguage, support;
+    FirebaseUser firebaseUser;
+    String profileid;
+    User userId;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,7 +64,52 @@ public class Personal_settings extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_personal_settings, container, false);
+        View view = inflater.inflate(R.layout.fragment_personal_settings, container, false);
+
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        SharedPreferences prefs = getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE);
+        profileid = prefs.getString("profileId", "none");
+
+        username = view.findViewById(R.id.userName);
+        emailUser = view.findViewById(R.id.emailUser);
+        numberUser = view.findViewById(R.id.numberUser);
+        editProfile = view.findViewById(R.id.editProfilebtn);
+        editLanguage = view.findViewById(R.id.languagebtn);
+        support = view.findViewById(R.id.suppordtbtn);
+
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        userInfo();
+
+        return view;
     }
+
+    private void userInfo(){
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (getContext() != null){
+                    User user = snapshot.getValue(User.class);
+
+                    username.setText(user.getUsername());
+                    emailUser.setText(user.getEmail());
+                    numberUser.setText(user.getPhone_number());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
 }

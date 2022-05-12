@@ -3,13 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screen.Status">
+    tools:context=".screen.Status"
+    android:background="@drawable/fon_main2">
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/bar">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -19,10 +20,11 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Search"
             android:layout_marginHorizontal="20sp"
+            android:hint="Search"
+            android:textColor="@color/black"
             android:textSize="20dp"
-            android:textColor="@color/black"/>
+            android:id="@+id/search_bar"/>
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -7,49 +7,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".screen.Person_main"
-        android:id="@+id/personal_fragment">
+        android:id="@+id/personal_fragment"
+        android:background="@drawable/fon_main2">
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/user_name"
+            android:id="@+id/userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Louding"
-            android:textSize="18dp"/>
+            android:textSize="28dp"
+            android:text="name"
+            android:textColor="@color/black"
+            android:fontFamily="@font/paytone_one"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="bottom"
-            android:gravity="right">
+    </androidx.appcompat.widget.Toolbar>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_your_friend"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="10dp"
-                android:backgroundTint="@color/light_green"/>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:foregroundGravity="bottom"
+        android:overScrollMode="never" />
 
-            <ImageButton
-                android:id="@+id/button_sett"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/settings"
-                android:layout_margin="10dp"/>
-
-        </LinearLayout>
-
-
-        <ImageButton
-            android:id="@+id/button_person"
-            android:layout_width="265dp"
-            android:layout_height="250dp"
+        <ImageView
+            android:id="@+id/person"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:layout_gravity="center"
             android:layout_marginBottom="50dp"
-            android:backgroundTint="@color/backgroud"
-            android:src="@drawable/star2" />
+            android:background="@null"
+            android:src="@drawable/main_person3" />
 
 
         <ImageButton
@@ -59,7 +50,10 @@
             android:layout_gravity="center|right"
             android:layout_marginRight="90dp"
             android:layout_marginTop="40dp"
-            android:src="@drawable/change_star_btn"
-            android:backgroundTint="@color/backgroud"/>
+            android:background="@null"
+            android:src="@drawable/change_star_btn"/>
 
-    </FrameLayout>
+
+
+
+</FrameLayout>

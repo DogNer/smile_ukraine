@@ -44,26 +44,5 @@ public class Settings_activity extends AppCompatActivity {
         });
 
     }
-    private void showUserProfile(FirebaseUser firebaseUser) {
-        DatabaseReference referenceProfile = FirebaseDatabase.getInstance().getReference("Registered Users").child(firebaseUser.getUid());
-        referenceProfile.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ReadWriteUserDetails readUserDetails = snapshot.getValue(ReadWriteUserDetails.class);
-                if (readUserDetails != null) {
-                    name = firebaseUser.getDisplayName();
-                    username.setText(name);
-                    Toast.makeText(Settings_activity.this, "All is correct", Toast.LENGTH_SHORT).show();
-                } else {
-                    username.setText("xxxx");
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Settings_activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 
 }

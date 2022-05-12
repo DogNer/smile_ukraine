@@ -20,8 +20,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position){
-            case 0: return new Person_main();
-            case 1: return new Status();
+            case 0: return new Status();
+            case 1: return new Person_main();
             case 2: return new Personal_settings();
         }
         return null;
@@ -36,10 +36,11 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position){
-            case 0: return "MENU";
-            case 1: return "FRIENDS";
+            case 0: return "FRIEND";
+            case 1: return "MENU";
             case 2: return "PROFILE";
         }
         return null;
     }
+
 }

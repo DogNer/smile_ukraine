@@ -27,21 +27,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 public class first_loadig_menu extends AppCompatActivity {
 
     Button buttonLog, buttonRegister;
-    FirebaseUser firebaseUser;
 
-    RelativeLayout root;
-
-    /*@Override
-    protected void onStart() {
-        super.onStart();
-
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-
-        if (firebaseUser != null){
-            startActivity(new Intent(first_loadig_menu.this, MainActivity.class));
-            finish();
-        }
-    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

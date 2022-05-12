@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.smile_ukraine.screen.Person_main;
@@ -31,6 +32,7 @@ public class Register_activity extends AppCompatActivity {
 
     private ProgressBar progressBar;
     Button btn_register;
+    TextView text_log;
 
     FirebaseAuth auth;
     DatabaseReference reference;
@@ -48,6 +50,16 @@ public class Register_activity extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         phone_number = findViewById(R.id.phoneNumber);
+
+        text_log = findViewById(R.id.text_log);
+
+        text_log.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Register_activity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
         auth = FirebaseAuth.getInstance();
 

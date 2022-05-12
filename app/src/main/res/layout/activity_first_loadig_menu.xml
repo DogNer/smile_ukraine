@@ -53,22 +53,22 @@
             android:orientation="vertical">
 
             <Button
-                android:fontFamily="@font/paytone_one"
                 android:id="@+id/ButtonLogn"
                 android:layout_width="200dp"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_marginVertical="5dp"
-                android:backgroundTint="@color/blue_ou"
+                android:backgroundTint="@color/yellow_lite"
                 android:text="Log in"
-                android:textSize="24dp" />
+                android:textSize="24dp"
+                android:textColor="@color/black"/>
 
             <Button
-                android:fontFamily="@font/paytone_one"
                 android:id="@+id/ButtonRegister"
                 android:layout_width="200dp"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_marginVertical="5dp"
-                android:backgroundTint="@color/blue_ou"
+                android:backgroundTint="@color/yellow_lite"
+                android:textColor="@color/black"
                 android:text="Register"
                 android:textSize="24dp" />
 

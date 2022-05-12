@@ -4,21 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".FriendsActivity"
+    android:background="@drawable/fon_main2">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayoult"
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/navigationBar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tabTextColor="@color/black" />
+        android:id="@+id/toolbar"
+        android:background="@color/navigationBar"/>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/tabLayoult" />
-
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar" />
 
 </RelativeLayout>

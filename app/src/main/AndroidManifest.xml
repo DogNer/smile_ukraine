@@ -12,10 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Smile_ukraine">
         <activity
+            android:name=".MenuInSett.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FriendsActivity"
+            android:exported="false" />
+        <activity
             android:name=".Register_activity"
             android:exported="false" />
         <activity
-            android:name=".first_loadig_menu"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +29,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".first_loadig_menu"
+            android:exported="false"></activity>
         <activity
             android:name=".Settings_activity"
             android:exported="false" />
