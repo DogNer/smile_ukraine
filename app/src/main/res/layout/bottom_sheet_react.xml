@@ -32,6 +32,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center"
+                    android:id="@+id/textWithUser"
                     />
 
                 <ImageView
@@ -55,7 +56,8 @@
                 android:layout_height="100dp"
                 android:background="@drawable/bg_button_react"
                 android:layout_marginRight="2dp"
-                android:text="Embrace"/>
+                android:text="Embrace"
+                android:id="@+id/buttonEmbrace"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="250dp"
@@ -63,14 +65,16 @@
                 android:background="@drawable/bg_button_react"
                 android:layout_marginVertical="20dp"
                 android:layout_marginLeft="2dp"
-                android:text="Wave"/>
+                android:text="Wave"
+                android:id="@+id/buttonwave"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="250dp"
                 android:layout_height="100dp"
                 android:background="@drawable/bg_button_react"
                 android:layout_marginLeft="2dp"
-                android:text="Kiss"/>
+                android:text="Kiss"
+                android:id="@+id/buttonKiss"/>
 
 
         </LinearLayout>

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +20,11 @@ import com.example.smile_ukraine.Modals.User;
 import com.example.smile_ukraine.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -28,6 +34,9 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
     private List<User> mUsers;
 
     private FirebaseUser firebaseUser;
+    TextView text_to_user;
+    String friend_name;
+    Button btn_embrace, btn_kiss, btn_wave;
 
     @NonNull
     @Override
@@ -46,7 +55,11 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         final User user = mUsers.get(position);
 
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
         holder.username.setText(user.getUsername());
+        friend_name = user.getUsername();
+
         holder.btn_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,6 +73,34 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
         final Dialog dialog = new Dialog(mContext);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.bottom_sheet_react);
+
+        text_to_user = dialog.findViewById(R.id.textWithUser);
+        text_to_user.setText("Share your reaction to " + friend_name);
+
+        btn_embrace = dialog.findViewById(R.id.buttonEmbrace);
+        btn_kiss = dialog.findViewById(R.id.buttonKiss);
+        btn_wave = dialog.findViewById(R.id.buttonwave);
+
+        btn_embrace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "You ambrace to " + friend_name, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btn_kiss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "You kiss " + friend_name, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btn_wave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "You wave to " + friend_name, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         dialog.show();
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
