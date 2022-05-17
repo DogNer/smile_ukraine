@@ -105,6 +105,7 @@ public class Register_activity extends AppCompatActivity {
                             hasMap.put("id", userid);
                             hasMap.put("username", username.toLowerCase());
                             hasMap.put("bio", "");
+                            hasMap.put("emotion", "happy");
                             hasMap.put("phone_number", phone_number.toLowerCase());
                             hasMap.put("password", password.toLowerCase());
                             hasMap.put("email", email.toLowerCase());

@@ -1,12 +1,17 @@
 package com.example.smile_ukraine.CardVieww;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,7 +64,7 @@ public class AdapterCard extends PagerAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (position == 1){
+                if (position == 0){
                     Intent intent = new Intent(view.getContext(), FriendsActivity.class);
                     view.getContext().startActivity(intent);
                 }

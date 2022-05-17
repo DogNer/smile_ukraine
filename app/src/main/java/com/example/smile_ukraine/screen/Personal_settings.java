@@ -45,7 +45,7 @@ public class Personal_settings extends Fragment {
         return fragment;
     }
 
-    TextView username, emailUser, numberUser, editProfile, editLanguage, support;
+    TextView username, emailUser, numberUser, editNameBtn, languageBtn, supportBtn, addAccountBtn;
     FirebaseUser firebaseUser;
     String profileid;
     User userId;
@@ -73,11 +73,12 @@ public class Personal_settings extends Fragment {
         username = view.findViewById(R.id.userName);
         emailUser = view.findViewById(R.id.emailUser);
         numberUser = view.findViewById(R.id.numberUser);
-        editProfile = view.findViewById(R.id.editProfilebtn);
-        editLanguage = view.findViewById(R.id.languagebtn);
-        support = view.findViewById(R.id.suppordtbtn);
+        editNameBtn = view.findViewById(R.id.edit_name);
+        languageBtn = view.findViewById(R.id.language_btn);
+        supportBtn = view.findViewById(R.id.support_btn);
+        addAccountBtn = view.findViewById(R.id.add_account_btn);
 
-        editProfile.setOnClickListener(new View.OnClickListener() {
+        editNameBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), ProfileActivity.class);
