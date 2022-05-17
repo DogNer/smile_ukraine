@@ -156,32 +156,6 @@ public class Person_main extends Fragment implements View.OnClickListener {
 
         personAppearance = view.findViewById(R.id.person);
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
-
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (getContext() != null){
-                    User user = snapshot.getValue(User.class);
-
-                    if (user.getEmotion() == "norm"){
-                        personAppearance.setImageResource(R.drawable.preson_norm);
-                    }
-                    if (user.getEmotion() == "happy"){
-                        personAppearance.setImageResource(R.drawable.main_person3);
-                    }
-                    if (user.getEmotion() == "sad"){
-                        personAppearance.setImageResource(R.drawable.person_sad);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
 
         personAppearance.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -223,7 +197,9 @@ public class Person_main extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View view) {
                 emotion = "happy";
+                textEmotion.setText(emotion);
                 updateUserInfo("https://s1.hostingkartinok.com/uploads/images/2022/05/5a64fb4aa9b19b790122046cc721f649.png");
+                setFromEmotion();
             }
         });
 
@@ -231,7 +207,9 @@ public class Person_main extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View view) {
                 emotion = "norm";
+                textEmotion.setText(emotion);
                 updateUserInfo("https://s1.hostingkartinok.com/uploads/images/2022/05/61f5fd5782dd5df4db93147ef559608a.png");
+                setFromEmotion();
             }
         });
 
@@ -239,7 +217,9 @@ public class Person_main extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View view) {
                 emotion = "sad";
+                textEmotion.setText(emotion);
                 updateUserInfo("https://s1.hostingkartinok.com/uploads/images/2022/05/653c0dda8b4418ab515b9f47e814a2ad.png");
+                setFromEmotion();
             }
         });
 
@@ -258,10 +238,9 @@ public class Person_main extends Fragment implements View.OnClickListener {
         hashMap.put("emotion", emotion);
 
         reference.updateChildren(hashMap);
-        setFromEmotion();
     }
 
-    private void setFromEmotion(){
+    private void setFromEmotion() {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
 
         reference.addValueEventListener(new ValueEventListener() {
@@ -270,20 +249,7 @@ public class Person_main extends Fragment implements View.OnClickListener {
                 if (getContext() != null){
                     User user = snapshot.getValue(User.class);
 
-                    Glide.with(getContext()).load(user.getEmotion()).into(personAppearance);
-
-                    /*if (user.getEmotion() == "norm"){
-                        personAppearance.setImageResource(R.drawable.preson_norm);
-                        personSheet.setImageResource(R.drawable.preson_norm);
-                    }
-                    if (user.getEmotion() == "happy"){
-                        personAppearance.setImageResource(R.drawable.main_person3);
-                        personSheet.setImageResource(R.drawable.main_person3);
-                    }
-                    if (user.getEmotion() == "sad"){
-                        personAppearance.setImageResource(R.drawable.person_sad);
-                        personSheet.setImageResource(R.drawable.person_sad);
-                    }*/
+                    Glide.with(getContext()).load(user.getEmotion()).into(personSheet);
                 }
             }
 

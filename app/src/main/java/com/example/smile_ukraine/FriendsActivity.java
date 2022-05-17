@@ -58,8 +58,6 @@ public class FriendsActivity extends AppCompatActivity {
             }
         });
 
-
-
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -71,6 +69,7 @@ public class FriendsActivity extends AppCompatActivity {
 
         getFriend();
     }
+
 
     private void getFriend(){
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Follow")
