@@ -1,54 +1,32 @@
 package com.example.smile_ukraine.screen;
 
-import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.ColorSpace;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModel;
-import androidx.viewpager.widget.ViewPager;
-
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import com.example.smile_ukraine.CardVieww.AdapterCard;
 import com.example.smile_ukraine.CardVieww.MyModelCard;
-import com.example.smile_ukraine.FragmentFriendsAdd;
-import com.example.smile_ukraine.FriendsActivity;
-import com.example.smile_ukraine.MainActivity;
-import com.example.smile_ukraine.MenuInSett.ProfileActivity;
 import com.example.smile_ukraine.Modals.User;
 import com.example.smile_ukraine.R;
-import com.example.smile_ukraine.Register_activity;
-import com.example.smile_ukraine.Settings_activity;
-import com.example.smile_ukraine.databinding.FragmentPersonMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -58,9 +36,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.Locale;
-import java.util.Objects;
+import java.util.HashMap;
 
 public class Person_main extends Fragment implements View.OnClickListener {
 
@@ -94,7 +70,7 @@ public class Person_main extends Fragment implements View.OnClickListener {
 
     TextView username;
     FirebaseUser firebaseUser;
-    String profileid;
+    String profileid, emotion;
     User userId;
 
     ActionBar actionBar;
@@ -103,13 +79,19 @@ public class Person_main extends Fragment implements View.OnClickListener {
     ArrayList<MyModelCard> modelArrayList;
     AdapterCard myAdapter;
 
-    ImageView personAppearance;
+    ImageView personAppearance, personSheet;
+    Button btnhappy, btnnorm, btnsad;
+
+    TextView textEmotion;
+
+    ImageButton btn_change_star;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_person_main, container, false);
+
         /*ImageView button_set = (ImageView) view.findViewById(R.id.button_sett);
         button_set.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,18 +103,13 @@ public class Person_main extends Fragment implements View.OnClickListener {
 
 
 
-        ImageButton btn_change_star = (ImageButton) view.findViewById(R.id.chande_star_btn);
+        /*btn_change_star = view.findViewById(R.id.chande_star_btn);
         btn_change_star.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
-
-                LayoutInflater inflater = LayoutInflater.from(getContext());
-                View menu_change_star = inflater.inflate(R.layout.menu_change_star, null);
-                dialog.setView(menu_change_star);
-                dialog.show();
+                showDialogChangeColor();
             }
-        });
+        });*/
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -178,25 +155,143 @@ public class Person_main extends Fragment implements View.OnClickListener {
 
         personAppearance = view.findViewById(R.id.person);
 
+        /*DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (getContext() != null){
+                    User user = snapshot.getValue(User.class);
+
+                    if (user.getEmotion() == "norm"){
+                        personAppearance.setImageResource(R.drawable.presonnorm);
+                    }
+                    if (user.getEmotion() == "happy"){
+                        personAppearance.setImageResource(R.drawable.main_person3);
+                    }
+                    if (user.getEmotion() == "sad"){
+                        personAppearance.setImageResource(R.drawable.personsad);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });*/
+
+
         personAppearance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showDialogEmotion();
             }
         });
+
         return view;
     }
 
-    private void showDialogEmotion() {
-        final Dialog dialog = new Dialog(getContext());
+    /*private void showDialogChangeColor() {
+        final Dialog dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.bottomsheetlayot);
+        dialog.setContentView(R.layout.bottomsheet_color_pers);
 
         dialog.show();
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.BOTTOM);
+    }*/
+
+    private void showDialogEmotion() {
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.bootom_sheet_color_pers);
+
+        textEmotion = dialog.findViewById(R.id.text_emotion);
+        personSheet = dialog.findViewById(R.id.person_sheet);
+
+        btnhappy = dialog.findViewById(R.id.btnHappy);
+        btnnorm = dialog.findViewById(R.id.btnMorm);
+        btnsad = dialog.findViewById(R.id.btnSad);
+
+        setFromEmotion();
+
+        btnhappy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                emotion = "happy";
+                updateUserInfo(emotion);
+            }
+        });
+
+        btnnorm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                emotion = "norm";
+                updateUserInfo(emotion);
+            }
+        });
+
+        btnsad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                emotion = "sad";
+                updateUserInfo(emotion);
+
+            }
+        });
+
+
+        dialog.show();
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
+    }
+
+    private void updateUserInfo(String emotion) {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("emotion", emotion);
+
+        reference.updateChildren(hashMap);
+        setFromEmotion();
+    }
+
+    private void setFromEmotion(){
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (getContext() != null){
+                    User user = snapshot.getValue(User.class);
+
+                    textEmotion.setText(user.getEmotion());
+
+                    if (user.getEmotion() == "norm"){
+                        //personAppearance.setImageResource(R.drawable.preson_norm);
+                        personSheet.setImageResource(R.drawable.preson_norm);
+                    }
+                    if (user.getEmotion() == "happy"){
+                        //personAppearance.setImageResource(R.drawable.main_person3);
+                        personSheet.setImageResource(R.drawable.main_person3);
+                    }
+                    if (user.getEmotion() == "sad"){
+                        //personAppearance.setImageResource(R.drawable.person_sad);
+                        personSheet.setImageResource(R.drawable.person_sad);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void loadCard() {

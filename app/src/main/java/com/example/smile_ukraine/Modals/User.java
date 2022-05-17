@@ -8,13 +8,24 @@ public class User {
     private String phone_number;
     private String bio;
     private String email;
+    private String emotion;
 
-    public User(String id, String username, String phone_number, String bio, String email) {
+    public User(String id, String username, String phone_number, String bio, String email, String emotion) {
+
         this.id = id;
         this.username = username;
         this.phone_number = phone_number;
         this.bio = bio;
         this.email = email;
+        this.emotion = emotion;
+    }
+
+    public String getEmotion() {
+        return emotion;
+    }
+
+    public void setEmotion(String emotion) {
+        this.emotion = emotion;
     }
 
     public String getEmail() {

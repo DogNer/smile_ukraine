@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.smile_ukraine.Adapter.FriendsAdapter;
 import com.example.smile_ukraine.Adapter.UserAdapter;
 import com.example.smile_ukraine.Modals.User;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,7 +36,7 @@ public class FriendsActivity extends AppCompatActivity {
     FirebaseUser firebaseUser;
 
     RecyclerView recyclerView;
-    UserAdapter userAdapter;
+    FriendsAdapter friendsAdapter;
     List<User> userList;
 
     @Override
@@ -63,8 +64,8 @@ public class FriendsActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         userList = new ArrayList<>();
-        userAdapter = new UserAdapter(this, userList);
-        recyclerView.setAdapter(userAdapter);
+        friendsAdapter = new FriendsAdapter(this, userList);
+        recyclerView.setAdapter(friendsAdapter);
 
         idList = new ArrayList<>();
 
@@ -106,7 +107,7 @@ public class FriendsActivity extends AppCompatActivity {
                         }
                     }
                 }
-                userAdapter.notifyDataSetChanged();
+                friendsAdapter.notifyDataSetChanged();
             }
 
             @Override

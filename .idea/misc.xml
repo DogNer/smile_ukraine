@@ -12,6 +12,7 @@
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable-hdpi/ic_baseline_settings_24.xml" value="0.1" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable-hdpi/ic_launcher_background.xml" value="0.16587837837837838" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable-hdpi/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/bg_button_react.xml" value="0.2070945945945946" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/button_style.xml" value="0.16587837837837838" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/dialog_bg.xml" value="0.2483108108108108" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/ic_launcher_background.xml" value="0.16587837837837838" />
@@ -25,6 +26,8 @@
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/activity_profile.xml" value="0.1554054054054054" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/activity_register.xml" value="0.2" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/activity_settings.xml" value="0.25" />
+        <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/bootom_sheet_color_pers.xml" value="0.23783783783783785" />
+        <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/bottom_sheet_react.xml" value="0.1966216216216216" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/bottomsheetlayot.xml" value="0.23783783783783785" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/carditem.xml" value="0.2" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/fragment_add_friends.xml" value="0.36666666666666664" />
@@ -33,6 +36,7 @@
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/fragment_person_main.xml" value="0.18" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/fragment_personal_settings.xml" value="0.16" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/fragment_status.xml" value="0.22" />
+        <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/friend_item.xml" value="0.23783783783783785" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/kl.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/menu_change_star.xml" value="0.33" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/sample_my_view.xml" value="0.22" />
