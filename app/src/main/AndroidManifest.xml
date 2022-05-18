@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Smile_ukraine">
         <activity
+            android:name=".SendingReactionFrom"
+            android:exported="false" />
+        <activity
             android:name=".MenuInSett.ProfileActivity"
             android:exported="false" />
         <activity
@@ -31,13 +34,13 @@
         </activity>
         <activity
             android:name=".first_loadig_menu"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".Settings_activity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"

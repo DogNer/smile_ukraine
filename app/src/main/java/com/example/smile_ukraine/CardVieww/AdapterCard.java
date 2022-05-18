@@ -20,6 +20,7 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.smile_ukraine.FriendsActivity;
 import com.example.smile_ukraine.R;
+import com.example.smile_ukraine.SendingReactionFrom;
 import com.example.smile_ukraine.Settings_activity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -66,6 +67,10 @@ public class AdapterCard extends PagerAdapter {
             public void onClick(View view) {
                 if (position == 0){
                     Intent intent = new Intent(view.getContext(), FriendsActivity.class);
+                    view.getContext().startActivity(intent);
+                }
+                else if (position == 1){
+                    Intent intent = new Intent(view.getContext(), SendingReactionFrom.class);
                     view.getContext().startActivity(intent);
                 }
                 Toast.makeText(context, title , Toast.LENGTH_SHORT).show();

@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHolder> {
@@ -35,7 +36,7 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
 
     private FirebaseUser firebaseUser;
     TextView text_to_user;
-    String friend_name;
+    String friend_name, friend_id, usernames;
     Button btn_embrace, btn_kiss, btn_wave;
 
     @NonNull
@@ -52,18 +53,38 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         final User user = mUsers.get(position);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
         holder.username.setText(user.getUsername());
         friend_name = user.getUsername();
+        friend_id = user.getId();
 
         holder.btn_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showDialogReact();
+            }
+        });
+
+    }
+
+    private void userInfo(){
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (mContext != null){
+                    User user = snapshot.getValue(User.class);
+
+                    usernames = user.getUsername();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
 
@@ -81,9 +102,12 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
         btn_kiss = dialog.findViewById(R.id.buttonKiss);
         btn_wave = dialog.findViewById(R.id.buttonwave);
 
+        userInfo();
+
         btn_embrace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sendMassage(usernames, friend_id, "ambrace");
                 Toast.makeText(mContext, "You ambrace to " + friend_name, Toast.LENGTH_SHORT).show();
             }
         });
@@ -91,6 +115,7 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
         btn_kiss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sendMassage(usernames, friend_id, "kiss");
                 Toast.makeText(mContext, "You kiss " + friend_name, Toast.LENGTH_SHORT).show();
             }
         });
@@ -98,6 +123,7 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
         btn_wave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sendMassage(usernames, friend_id, "wave");
                 Toast.makeText(mContext, "You wave to " + friend_name, Toast.LENGTH_SHORT).show();
             }
         });
@@ -107,6 +133,17 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.BOTTOM);
+    }
+
+    private void sendMassage(String sender, String receiver, String massage){
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("sender", sender);
+        hashMap.put("receiver", receiver);
+        hashMap.put("massage", massage);
+
+        reference.child("Massages").child(friend_id).push().setValue(hashMap);
     }
 
     @Override

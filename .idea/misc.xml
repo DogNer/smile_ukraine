@@ -25,6 +25,7 @@
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/activity_profile.xml" value="0.16" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/activity_register.xml" value="0.2" />
+        <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/activity_sending_reaction_from.xml" value="0.11678832116788321" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/activity_settings.xml" value="0.25" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/bootom_sheet_color_pers.xml" value="0.23783783783783785" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/bottom_sheet_react.xml" value="0.1966216216216216" />
@@ -39,8 +40,10 @@
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/friend_item.xml" value="0.23783783783783785" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/invite_friends.xml" value="0.2" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/kl.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/latout_sending_reaction_from.xml" value="0.23783783783783785" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/menu_change_star.xml" value="0.33" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/sample_my_view.xml" value="0.22" />
+        <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/send_friends_reaction.xml" value="0.1" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/toolbar_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/toolbar_new.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/user_doing.xml" value="0.1" />

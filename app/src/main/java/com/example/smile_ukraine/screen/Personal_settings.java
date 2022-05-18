@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.smile_ukraine.LoginActivity;
 import com.example.smile_ukraine.Modals.User;
 import com.example.smile_ukraine.MenuInSett.ProfileActivity;
 import com.example.smile_ukraine.R;
@@ -86,6 +87,14 @@ public class Personal_settings extends Fragment {
             }
         });
 
+        addAccountBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
         userInfo();
 
         return view;
