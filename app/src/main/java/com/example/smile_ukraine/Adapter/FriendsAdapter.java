@@ -2,6 +2,8 @@ package com.example.smile_ukraine.Adapter;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.Gravity;
@@ -14,10 +16,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smile_ukraine.Modals.User;
 import com.example.smile_ukraine.R;
+import com.example.smile_ukraine.screen.Personal_settings;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -34,9 +38,9 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
     private Context mContext;
     private List<User> mUsers;
 
-    private FirebaseUser firebaseUser;
+    FirebaseUser firebaseUser;
     TextView text_to_user;
-    String friend_name, friend_id, usernames;
+    String usernames;
     Button btn_embrace, btn_kiss, btn_wave;
 
     @NonNull
@@ -53,18 +57,17 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final User user = mUsers.get(position);
-
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        holder.username.setText(user.getUsername());
-        friend_name = user.getUsername();
-        friend_id = user.getId();
+        userInfo();
+        final User user = mUsers.get(position);
 
-        holder.btn_share.setOnClickListener(new View.OnClickListener() {
+        holder.username.setText(user.getUsername());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showDialogReact();
+                showDialogReact(user.getUsername(), user.getId());
             }
         });
 
@@ -72,6 +75,7 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
 
     private void userInfo(){
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -90,41 +94,40 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
 
     }
 
-    private void showDialogReact() {
+    private void showDialogReact(String username, String userId) {
         final Dialog dialog = new Dialog(mContext);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.bottom_sheet_react);
 
         text_to_user = dialog.findViewById(R.id.textWithUser);
-        text_to_user.setText("Share your reaction to " + friend_name);
+        text_to_user.setText("Share your reaction to " + username);
 
         btn_embrace = dialog.findViewById(R.id.buttonEmbrace);
         btn_kiss = dialog.findViewById(R.id.buttonKiss);
         btn_wave = dialog.findViewById(R.id.buttonwave);
 
-        userInfo();
 
         btn_embrace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendMassage(usernames, friend_id, "ambrace");
-                Toast.makeText(mContext, "You ambrace to " + friend_name, Toast.LENGTH_SHORT).show();
+                sendMassage(usernames, userId, "ambrace");
+                Toast.makeText(mContext, "You ambrace to " + username, Toast.LENGTH_SHORT).show();
             }
         });
 
         btn_kiss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendMassage(usernames, friend_id, "kiss");
-                Toast.makeText(mContext, "You kiss " + friend_name, Toast.LENGTH_SHORT).show();
+                sendMassage(usernames, userId, "kiss");
+                Toast.makeText(mContext, "You kiss " + username, Toast.LENGTH_SHORT).show();
             }
         });
 
         btn_wave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendMassage(usernames, friend_id, "wave");
-                Toast.makeText(mContext, "You wave to " + friend_name, Toast.LENGTH_SHORT).show();
+                sendMassage(usernames, userId, "wave");
+                Toast.makeText(mContext, "You wave to " + username, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -143,7 +146,7 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
         hashMap.put("receiver", receiver);
         hashMap.put("massage", massage);
 
-        reference.child("Massages").child(friend_id).push().setValue(hashMap);
+        reference.child("Massages").child(receiver).push().setValue(hashMap);
     }
 
     @Override
@@ -153,7 +156,7 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView username;
+        public TextView username, friend_name;
         //public CircleImageView image_profile;
         public Button btn_share;
 

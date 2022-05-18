@@ -81,6 +81,7 @@ public class FriendsActivity extends AppCompatActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     idList.add(snapshot.getKey());
                 }
+
                 showUsers();
             }
 
@@ -100,6 +101,7 @@ public class FriendsActivity extends AppCompatActivity {
                 userList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     User user = snapshot.getValue(User.class);
+
                     for (String id : idList){
                         if (user.getId().equals(id)){
                             userList.add(user);

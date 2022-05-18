@@ -51,7 +51,7 @@ public class Personal_settings extends Fragment {
     String profileid;
     User userId;
 
-
+    FirebaseAuth firebaseAuth;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +60,8 @@ public class Personal_settings extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        firebaseAuth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -90,6 +92,7 @@ public class Personal_settings extends Fragment {
         addAccountBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                firebaseAuth.signOut();
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
                 getActivity().finish();
