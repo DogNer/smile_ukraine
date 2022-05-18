@@ -164,7 +164,6 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
             super(itemView);
 
             username = itemView.findViewById(R.id.username);
-            btn_share = itemView.findViewById(R.id.btn_share);
         }
     }
 }

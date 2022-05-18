@@ -71,7 +71,7 @@ public class Person_main extends Fragment implements View.OnClickListener {
 
     TextView username;
     FirebaseUser firebaseUser;
-    String profileid, emotion;
+    String profileid, emotion, userColor;
     User userId;
 
     ActionBar actionBar;
@@ -86,6 +86,7 @@ public class Person_main extends Fragment implements View.OnClickListener {
     TextView textEmotion;
 
     ImageButton btn_change_star;
+    ImageView imgFirstColor, imgSecondColor;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -93,24 +94,13 @@ public class Person_main extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_person_main, container, false);
 
-        /*ImageView button_set = (ImageView) view.findViewById(R.id.button_sett);
-        button_set.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), Settings_activity.class);
-                startActivity(intent);
-            }
-        });*/
-
-
-
-        /*btn_change_star = view.findViewById(R.id.chande_star_btn);
+        btn_change_star = view.findViewById(R.id.chanпe_star_btn);
         btn_change_star.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showDialogChangeColor();
             }
-        });*/
+        });
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -167,17 +157,34 @@ public class Person_main extends Fragment implements View.OnClickListener {
         return view;
     }
 
-    /*private void showDialogChangeColor() {
+    private void showDialogChangeColor() {
         final Dialog dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.bottomsheet_color_pers);
+
+        imgFirstColor = dialog.findViewById(R.id.first_color);
+        imgSecondColor = dialog.findViewById(R.id.second_color);
+
+        imgFirstColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateUserColor("first");
+            }
+        });
+
+        imgSecondColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateUserColor("second");
+            }
+        });
 
         dialog.show();
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.BOTTOM);
-    }*/
+    }
 
     private void showDialogEmotion() {
         final Dialog dialog = new Dialog(getActivity());
@@ -198,7 +205,9 @@ public class Person_main extends Fragment implements View.OnClickListener {
             public void onClick(View view) {
                 emotion = "happy";
                 textEmotion.setText(emotion);
-                updateUserInfo("https://s1.hostingkartinok.com/uploads/images/2022/05/5a64fb4aa9b19b790122046cc721f649.png");
+                if (userColor == "first")
+                    updateUserInfo("https://s1.hostingkartinok.com/uploads/images/2022/05/5a64fb4aa9b19b790122046cc721f649.png");
+                else updateUserInfo("https://s1.hostingkartinok.com/uploads/images/2022/05/84c4b800fd74b67e71683be0d2809991.png");
                 setFromEmotion();
             }
         });
@@ -208,7 +217,9 @@ public class Person_main extends Fragment implements View.OnClickListener {
             public void onClick(View view) {
                 emotion = "norm";
                 textEmotion.setText(emotion);
-                updateUserInfo("https://s1.hostingkartinok.com/uploads/images/2022/05/61f5fd5782dd5df4db93147ef559608a.png");
+                if (userColor == "first")
+                    updateUserInfo("https://s1.hostingkartinok.com/uploads/images/2022/05/f687360a8e78af5d716dd7ccfbad9595.png");
+                else updateUserInfo("");
                 setFromEmotion();
             }
         });
@@ -218,7 +229,9 @@ public class Person_main extends Fragment implements View.OnClickListener {
             public void onClick(View view) {
                 emotion = "sad";
                 textEmotion.setText(emotion);
-                updateUserInfo("https://s1.hostingkartinok.com/uploads/images/2022/05/653c0dda8b4418ab515b9f47e814a2ad.png");
+                if (userColor == "second")
+                    updateUserInfo("https://s1.hostingkartinok.com/uploads/images/2022/05/653c0dda8b4418ab515b9f47e814a2ad.png");
+                else updateUserInfo("https://s1.hostingkartinok.com/uploads/images/2022/05/e213875dbdb19b317015f368a929d096.png");
                 setFromEmotion();
             }
         });
@@ -240,6 +253,15 @@ public class Person_main extends Fragment implements View.OnClickListener {
         reference.updateChildren(hashMap);
     }
 
+    private void updateUserColor(String pos) {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("bio", pos);
+
+        reference.updateChildren(hashMap);
+    }
+
     private void setFromEmotion() {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
 
@@ -249,6 +271,16 @@ public class Person_main extends Fragment implements View.OnClickListener {
                 if (getContext() != null){
                     User user = snapshot.getValue(User.class);
 
+                    userColor = user.getBio();
+                    if ("https://s1.hostingkartinok.com/uploads/images/2022/05/653c0dda8b4418ab515b9f47e814a2ad.png" == user.getEmotion()){
+                        textEmotion.setText("sad");
+                    }
+                    else if ("https://s1.hostingkartinok.com/uploads/images/2022/05/61f5fd5782dd5df4db93147ef559608a.png" == user.getEmotion()){
+                        textEmotion.setText("norm");
+                    }
+                    else if ("https://s1.hostingkartinok.com/uploads/images/2022/05/5a64fb4aa9b19b790122046cc721f649.png" == user.getEmotion()){
+                        textEmotion.setText("happy");
+                    }
                     Glide.with(getContext()).load(user.getEmotion()).into(personSheet);
                 }
             }

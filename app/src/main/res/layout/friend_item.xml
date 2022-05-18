@@ -25,14 +25,4 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_share"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginHorizontal="20dp"
-        android:backgroundTint="@color/black"
-        android:text="Share"
-        android:textSize="18dp" />
-
 </RelativeLayout>

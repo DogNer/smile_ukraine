@@ -43,7 +43,7 @@
 
 
         <ImageButton
-            android:id="@+id/chande_star_btn"
+            android:id="@+id/chanпe_star_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center|right"

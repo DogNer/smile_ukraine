@@ -2,21 +2,21 @@
     <string name="app_name">smile_ukraine</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="add_your_friend">Add friend</string>
-    <string name="friend">Friends</string>
-    <string name="language">Language</string>
-    <string name="change_name">Change name</string>
-    <string name="exit">Exit app</string>
+    <string name="add_your_friend">Додати друзів</string>
+    <string name="friend">Друзі</string>
+    <string name="language">Мови</string>
+    <string name="change_name">Змінити імя</string>
+    <string name="exit">Вийти</string>
     <string name="title_activity_first">first_activity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="next">Наступне</string>
+    <string name="previous">Попередне</string>
     <string name="welcome">Welcome to app</string>
-    <string name="sad_emotion">Sad</string>
-    <string name="norm_emotion">Normal</string>
-    <string name="happy_emotion">Happy</string>
+    <string name="sad_emotion">Сумно</string>
+    <string name="norm_emotion">Нормально</string>
+    <string name="happy_emotion">Весело</string>
     <string name="choose_emotion">Choose your emotion</string>
     <string name="text_support">Support</string>
     <string name="Change_account_text">Change account</string>
