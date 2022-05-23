@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +43,8 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
     TextView text_to_user;
     String usernames;
     Button btn_embrace, btn_kiss, btn_wave;
+
+    ImageButton btnback;
 
     @NonNull
     @Override
@@ -106,11 +109,19 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
         btn_kiss = dialog.findViewById(R.id.buttonKiss);
         btn_wave = dialog.findViewById(R.id.buttonwave);
 
+        btnback = dialog.findViewById(R.id.button_back);
+
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
 
         btn_embrace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendMassage(usernames, userId, "ambrace");
+                sendMassage(firebaseUser.getUid(), userId, "ambrace");
                 Toast.makeText(mContext, "You ambrace to " + username, Toast.LENGTH_SHORT).show();
             }
         });
@@ -118,7 +129,7 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
         btn_kiss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendMassage(usernames, userId, "kiss");
+                sendMassage(firebaseUser.getUid(), userId, "kiss");
                 Toast.makeText(mContext, "You kiss " + username, Toast.LENGTH_SHORT).show();
             }
         });
@@ -126,7 +137,7 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
         btn_wave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendMassage(usernames, userId, "wave");
+                sendMassage(firebaseUser.getUid(), userId, "wave");
                 Toast.makeText(mContext, "You wave to " + username, Toast.LENGTH_SHORT).show();
             }
         });

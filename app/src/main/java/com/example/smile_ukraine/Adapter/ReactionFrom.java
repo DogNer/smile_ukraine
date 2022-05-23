@@ -1,6 +1,7 @@
 package com.example.smile_ukraine.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.smile_ukraine.LoginActivity;
+import com.example.smile_ukraine.MainActivity;
 import com.example.smile_ukraine.Modals.Massage;
 import com.example.smile_ukraine.Modals.User;
 import com.example.smile_ukraine.R;
+import com.firebase.ui.auth.viewmodel.AuthViewModelBase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +33,9 @@ public class ReactionFrom extends RecyclerView.Adapter<ReactionFrom.ViewHolder>{
     private List<Massage> mMassage;
 
     private FirebaseUser firebaseUser;
+
+    FirebaseAuth auth;
+    String username;
 
     @NonNull
     @Override
@@ -48,7 +55,23 @@ public class ReactionFrom extends RecyclerView.Adapter<ReactionFrom.ViewHolder>{
         Massage massage = mMassage.get(position);
 
         holder.textEmotion.setText(massage.getMassage());
-        holder.textSender.setText(massage.getSender());
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users").child(massage.getSender());
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User user = snapshot.getValue(User.class);
+
+                holder.textSender.setText(user.getUsername());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
+
     }
 
     @Override

@@ -84,6 +84,7 @@ public class Person_main extends Fragment implements View.OnClickListener {
 
     ImageView personAppearance, personSheet;
     Button btnhappy, btnnorm, btnsad;
+    ImageButton btnback;
 
     TextView textEmotion;
 
@@ -166,6 +167,15 @@ public class Person_main extends Fragment implements View.OnClickListener {
         imgFirstColor = dialog.findViewById(R.id.first_color);
         imgSecondColor = dialog.findViewById(R.id.second_color);
 
+        btnback = dialog.findViewById(R.id.button_back);
+
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
         getUserEmotion();
 
         imgFirstColor.setOnClickListener(new View.OnClickListener() {
@@ -207,11 +217,20 @@ public class Person_main extends Fragment implements View.OnClickListener {
         textEmotion = dialog.findViewById(R.id.text_emotion);
         personSheet = dialog.findViewById(R.id.person_sheet);
 
+        btnback = dialog.findViewById(R.id.button_back);
+
         btnhappy = dialog.findViewById(R.id.btnHappy);
         btnnorm = dialog.findViewById(R.id.btnMorm);
         btnsad = dialog.findViewById(R.id.btnSad);
 
         setFromEmotion();
+
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
 
         btnhappy.setOnClickListener(new View.OnClickListener() {
             @Override

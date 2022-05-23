@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:background="@drawable/down_bottom_sheet"
+            android:id="@+id/button_back"
+            android:layout_marginBottom="15dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/paytone_one"
+            android:gravity="center"
+            android:text="Welcome to Smile"
+            android:textColor="@color/black"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="About Smile:"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textview_support"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:layout_marginVertical="5dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginVertical="30dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_find_friends"
+                    android:layout_marginVertical="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:id="@+id/text_find_friend"
+                    android:clickable="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="546545456454245646546546545645"
+                    android:visibility="gone"
+                    android:id="@+id/text_how_find"/>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_change_emotion"
+                android:layout_marginVertical="5dp"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:id="@+id/text_change_emotion"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_change_personal_color"
+                android:layout_marginVertical="5dp"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:id="@+id/text_change_color"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_send_reaction"
+                android:layout_marginVertical="5dp"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:id="@+id/text_send_react"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
