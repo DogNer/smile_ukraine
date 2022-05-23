@@ -32,16 +32,19 @@
                 android:layout_gravity="center">
 
                 <TextView
+                    android:id="@+id/textWithUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/b612_mono"
                     android:text="Share your reaction to friend"
                     android:textColor="@color/black"
                     android:textSize="18dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_gravity="center"
-                    android:id="@+id/textWithUser"
-                    />
+                    android:textStyle="bold"
+                    android:layout_marginHorizontal="10dp"
+                    android:gravity="center"/>
 
                 <ImageView
                     android:layout_width="160dp"
@@ -60,29 +63,35 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonEmbrace"
                 android:layout_width="250dp"
                 android:layout_height="100dp"
-                android:background="@drawable/bg_button_react"
                 android:layout_marginRight="2dp"
+                android:background="@drawable/bg_button_react"
+                android:fontFamily="@font/b612_mono"
                 android:text="@string/text_embrace"
-                android:id="@+id/buttonEmbrace"/>
+                android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonwave"
                 android:layout_width="250dp"
                 android:layout_height="100dp"
-                android:background="@drawable/bg_button_react"
                 android:layout_marginVertical="20dp"
                 android:layout_marginLeft="2dp"
+                android:background="@drawable/bg_button_react"
+                android:fontFamily="@font/b612_mono"
                 android:text="@string/text_Wave"
-                android:id="@+id/buttonwave"/>
+                android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonKiss"
                 android:layout_width="250dp"
                 android:layout_height="100dp"
-                android:background="@drawable/bg_button_react"
                 android:layout_marginLeft="2dp"
+                android:background="@drawable/bg_button_react"
+                android:fontFamily="@font/b612_mono"
                 android:text="@string/text_Kiss"
-                android:id="@+id/buttonKiss"/>
+                android:textStyle="bold" />
 
 
         </LinearLayout>

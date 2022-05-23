@@ -14,13 +14,14 @@
         android:layout_centerVertical="true">
 
         <TextView
-            android:fontFamily="@font/paytone_one"
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/username"
+            android:fontFamily="@font/aclonica"
             android:text="Username"
+            android:textColor="@color/black"
             android:textSize="24dp"
-            android:textColor="@color/black" />
+            android:textStyle="bold" />
 
 
     </LinearLayout>

@@ -28,7 +28,7 @@ import java.util.HashMap;
 
 public class Register_activity extends AppCompatActivity {
 
-    private EditText username, email, password, phone_number;
+    private EditText username, email, password, passwordAgain, phone_number;
 
     private ProgressBar progressBar;
     Button btn_register;
@@ -50,6 +50,7 @@ public class Register_activity extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         phone_number = findViewById(R.id.phoneNumber);
+        passwordAgain = findViewById(R.id.password_again);
 
         text_log = findViewById(R.id.text_log);
 
@@ -75,12 +76,20 @@ public class Register_activity extends AppCompatActivity {
                 String str_email = email.getText().toString();
                 String str_password = password.getText().toString();
                 String str_phoneNumber = phone_number.getText().toString();
+                String str_passwordAgain = passwordAgain.getText().toString();
 
                 if (TextUtils.isEmpty(str_username) || TextUtils.isEmpty(str_email)
-                        || TextUtils.isEmpty(str_password) || TextUtils.isEmpty(str_phoneNumber))
+                        || TextUtils.isEmpty(str_password) || TextUtils.isEmpty(str_phoneNumber)){
                     Toast.makeText(Register_activity.this, "Write your data", Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
+                }
                 else if (str_password.length() < 6){
-                    Toast.makeText(Register_activity.this, "Password is short", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register_activity.this, "Password is short. Enter more 6 chars", Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
+                }
+                else if (!str_passwordAgain.equals(str_password)){
+                    Toast.makeText(Register_activity.this, "Your passwords do not match", Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
                 }
                 else {
                     registerd(str_username, str_email, str_password, str_phoneNumber);

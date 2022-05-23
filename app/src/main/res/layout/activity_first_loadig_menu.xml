@@ -1,79 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/first_loading_menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".first_loadig_menu"
->
+    tools:context=".first_loadig_menu">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginVertical="50dp">
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp">
 
-        <ImageView
-            android:id="@+id/star"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/layout_menu"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            app:srcCompat="@drawable/star" />
-
-        <TextView
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/star"
-            android:fontFamily="@font/paytone_one"
-            android:lineSpacingExtra="12sp"
-            android:layout_marginTop="30dp"
-            android:text="@string/welcome"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="40dp" />
+            app:lottie_rawRes="@raw/emtionsmil"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_menu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginVertical="150dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <LinearLayout
+        <TextView
+            android:fontFamily="@font/aclonica"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/ButtonLogn"
-                android:layout_width="200dp"
-                android:layout_height="60dp"
-                android:layout_marginVertical="5dp"
-                android:backgroundTint="@color/yellow_lite"
-                android:text="Log in"
-                android:textSize="24dp"
-                android:textColor="@color/black"/>
-
-            <Button
-                android:id="@+id/ButtonRegister"
-                android:layout_width="200dp"
-                android:layout_height="60dp"
-                android:layout_marginVertical="5dp"
-                android:backgroundTint="@color/yellow_lite"
-                android:textColor="@color/black"
-                android:text="Register"
-                android:textSize="24dp" />
-
-        </LinearLayout>
+            android:text="SMILE"
+            android:textColor="@color/black"
+            android:textSize="40dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

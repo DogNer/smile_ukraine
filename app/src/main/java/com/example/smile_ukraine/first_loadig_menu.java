@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,32 +27,19 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class first_loadig_menu extends AppCompatActivity {
 
-    Button buttonLog, buttonRegister;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_loadig_menu);
 
-        buttonLog = findViewById(R.id.ButtonLogn);
-
-        buttonLog.setOnClickListener(new View.OnClickListener() {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(first_loadig_menu.this, LoginActivity.class);
-                startActivity(intent);
+            public void run() {
+                Intent i = new Intent(first_loadig_menu.this, LoginActivity.class);
+                startActivity(i);
+                finish();
             }
-        });
-
-        buttonRegister = findViewById(R.id.ButtonRegister);
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(first_loadig_menu.this, Register_activity.class);
-                startActivity(intent);
-            }
-        });
+        }, 2600);
 
     }
 

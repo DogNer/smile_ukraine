@@ -22,16 +22,17 @@
                 android:layout_height="90dp"
                 android:background="@drawable/bg_card_sett"/>
 
-            <TextView
-                android:id="@+id/titleCard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Name card"
-                android:textSize="24dp"
-                android:textColor="@color/black"
-                android:gravity="center"
-                android:background="@null"
-                android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/titleCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:fontFamily="@font/b612_mono"
+            android:gravity="center"
+            android:text="Name card"
+            android:textColor="@color/black"
+            android:textSize="24dp"/>
 
     </androidx.cardview.widget.CardView>
 </LinearLayout>
