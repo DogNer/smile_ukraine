@@ -137,7 +137,7 @@ public class Status extends Fragment {
                 mUsers.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     User user = dataSnapshot.getValue(User.class);
-                    mUsers.add(user);
+                        mUsers.add(user);
                 }
 
                 userAdapter.notifyDataSetChanged();
@@ -159,6 +159,7 @@ public class Status extends Fragment {
                     mUsers.clear();
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                         User user = dataSnapshot.getValue(User.class);
+                        if (!firebaseUser.getUid().equals(user.getId()))
                         mUsers.add(user);
                     }
 

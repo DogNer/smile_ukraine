@@ -25,7 +25,7 @@
             android:textColor="@color/black"
             android:textSize="24dp"
             android:textStyle="bold"
-            android:fontFamily="@font/b612_mono"/>
+            android:fontFamily="@font/reem_kufi"/>
 
         <LinearLayout
             android:layout_width="wrap_content"

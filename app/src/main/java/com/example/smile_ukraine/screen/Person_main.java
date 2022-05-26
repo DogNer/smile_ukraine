@@ -127,15 +127,11 @@ public class Person_main extends Fragment implements View.OnClickListener {
                 String title = modelArrayList.get(position).getTitle();
                 actionBar.setTitle(title);
             }
-
             @Override
             public void onPageSelected(int position) {
-
             }
-
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });*/
 
@@ -237,7 +233,7 @@ public class Person_main extends Fragment implements View.OnClickListener {
             public void onClick(View view) {
                 emotion = "happy";
                 //textEmotion.setText(emotion);
-                if (userColor == "first")
+                if (userColor.equals("first"))
                     updateUserInfo(color_f_happy);
                 else updateUserInfo(color_s_happy);
                 setFromEmotion();
@@ -249,7 +245,7 @@ public class Person_main extends Fragment implements View.OnClickListener {
             public void onClick(View view) {
                 emotion = "norm";
                 //textEmotion.setText(emotion);
-                if (userColor == "first")
+                if (userColor.equals("first"))
                     updateUserInfo(color_f_norm);
                 else updateUserInfo(color_s_norm);
                 setFromEmotion();
@@ -262,7 +258,7 @@ public class Person_main extends Fragment implements View.OnClickListener {
                 emotion = "sad";
                 setFromEmotion();
                 //textEmotion.setText(emotion);
-                if (userColor == "first")
+                if (userColor.equals("first"))
                     updateUserInfo(color_f_sad);
                 else updateUserInfo(color_s_sad);
 
@@ -356,7 +352,7 @@ public class Person_main extends Fragment implements View.OnClickListener {
                 "Friend list"
         ));
         modelArrayList.add(new MyModelCard(
-                "Invite friends"
+                "Getting reaction"
         ));
 
         myAdapter = new AdapterCard(getActivity(), modelArrayList);
@@ -401,7 +397,6 @@ public class Person_main extends Fragment implements View.OnClickListener {
                 transaction.setReorderingAllowed(true);
                 fragmentTransaction.replace(R.id.personal_fragment, FragmentFriendsAdd.class, null);
                 *//**//*fragmentTransaction.addToBackStack(null);*//**//*
-
                 fragmentTransaction.commit();*//*
             break;
         }*/

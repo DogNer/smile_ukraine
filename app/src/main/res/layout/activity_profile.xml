@@ -22,7 +22,7 @@
             android:id="@+id/btn_back"/>
 
         <TextView
-            android:fontFamily="@font/b612_mono"
+            android:fontFamily="@font/reem_kufi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="40dp"
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginVertical="10dp"
-            android:fontFamily="@font/aclonica"
+            android:fontFamily="@font/reem_kufi"
             android:text="@string/text_name"
             android:textColor="@color/black"
             android:textSize="28dp"
@@ -77,10 +77,11 @@
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginVertical="20dp"
-        android:background="@drawable/color_btn_user"
-        android:fontFamily="@font/b612_mono"
+        android:background="@drawable/bd_card_add_friends"
+        android:elevation="8dp"
+        android:fontFamily="@font/reem_kufi"
         android:text="@string/text_save"
-        android:textColor="@color/backgroud"
+        android:textColor="@color/black"
         android:textSize="24dp"
         android:textStyle="bold" />
 

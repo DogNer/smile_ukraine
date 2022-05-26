@@ -2,15 +2,19 @@ package com.example.smile_ukraine;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.smile_ukraine.Adapter.FriendsAdapter;
@@ -23,6 +27,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.dynamiclinks.DynamicLink;
+import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +44,9 @@ public class FriendsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     FriendsAdapter friendsAdapter;
     List<User> userList;
+    AppCompatButton btn_invite;
+    CardView cardInvite;
+    int cnt = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +56,17 @@ public class FriendsActivity extends AppCompatActivity {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
         id = firebaseUser.getUid();
+
+        btn_invite = findViewById(R.id.button_invite);
+        cardInvite = findViewById(R.id.card_invite);
+
+        btn_invite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onShareClicked();
+            }
+        });
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -80,6 +100,8 @@ public class FriendsActivity extends AppCompatActivity {
                 idList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     idList.add(snapshot.getKey());
+                    ++cnt;
+                    if (cnt > 4) cardInvite.setVisibility(View.GONE);
                 }
 
                 showUsers();
@@ -116,5 +138,31 @@ public class FriendsActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public static Uri generateContentLink() {
+        Uri baseUrl = Uri.parse("https://your-custom-name.page.link");
+        String domain = "https://your-app.page.link";
+
+        DynamicLink link = FirebaseDynamicLinks.getInstance()
+                .createDynamicLink()
+                .setLink(baseUrl)
+                .setDomainUriPrefix(domain)
+                .setIosParameters(new DynamicLink.IosParameters.Builder("com.your.bundleid").build())
+                .setAndroidParameters(new DynamicLink.AndroidParameters.Builder("com.your.packageName").build())
+                .buildDynamicLink();
+
+        return link.getUri();
+    }
+
+    private void onShareClicked() {
+        //DynamicLinksUtil.generateContentLink();
+        Uri link = generateContentLink();
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, link.toString());
+
+        startActivity(Intent.createChooser(intent, "Share Link"));
     }
 }

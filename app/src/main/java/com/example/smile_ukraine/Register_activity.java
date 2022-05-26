@@ -113,8 +113,8 @@ public class Register_activity extends AppCompatActivity {
                             HashMap<String, Object> hasMap = new HashMap<>();
                             hasMap.put("id", userid);
                             hasMap.put("username", username.toLowerCase());
-                            hasMap.put("bio", "");
-                            hasMap.put("emotion", "happy");
+                            hasMap.put("bio", "first");
+                            hasMap.put("emotion", "https://s1.hostingkartinok.com/uploads/images/2022/05/5a64fb4aa9b19b790122046cc721f649.png");
                             hasMap.put("phone_number", phone_number.toLowerCase());
                             hasMap.put("password", password.toLowerCase());
                             hasMap.put("email", email.toLowerCase());

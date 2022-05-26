@@ -14,13 +14,14 @@
         android:layout_marginBottom="10dp"
         android:layout_marginHorizontal="50dp"
         android:background="@null"
-        app:cardCornerRadius="30dp">
+        app:cardCornerRadius="30dp"
+        android:elevation="18dp">
 
-            <View
-                android:id="@+id/rectangle_5"
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:background="@drawable/bg_card_sett"/>
+        <View
+            android:id="@+id/rectangle_5"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@drawable/bd_card_add_friends"/>
 
         <TextView
             android:id="@+id/titleCard"
@@ -28,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@null"
-            android:fontFamily="@font/b612_mono"
+            android:fontFamily="@font/reem_kufi"
             android:gravity="center"
             android:text="Name card"
             android:textColor="@color/black"

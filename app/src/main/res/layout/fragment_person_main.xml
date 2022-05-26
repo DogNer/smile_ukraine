@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
     <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -34,13 +33,13 @@
         android:foregroundGravity="bottom"
         android:overScrollMode="never" />
 
-        <ImageView
-            android:id="@+id/person"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="50dp"
-            android:background="@drawable/main_person3" />
+    <ImageView
+        android:id="@+id/person"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/main_person3" />
 
 
         <ImageButton
@@ -52,8 +51,5 @@
             android:layout_marginTop="40dp"
             android:background="@null"
             android:src="@drawable/change_star_btn"/>
-
-
-
 
 </FrameLayout>

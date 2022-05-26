@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable-anydpi/EditImage.xml" value="0.1" />
+        <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable-anydpi/andoid_image.xml" value="0.20270270270270271" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable-anydpi/back_sett.xml" value="0.3828125" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable-anydpi/change_star_btn.xml" value="0.16587837837837838" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable-anydpi/searchimage.xml" value="0.16587837837837838" />
@@ -12,8 +13,10 @@
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable-hdpi/ic_baseline_settings_24.xml" value="0.1" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable-hdpi/ic_launcher_background.xml" value="0.16587837837837838" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable-hdpi/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/bd_card_add_friends.xml" value="0.2483108108108108" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/bg_button_logandreg.xml" value="0.2483108108108108" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/bg_button_react.xml" value="0.2070945945945946" />
+        <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/bg_button_white.xml" value="0.2483108108108108" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/bg_card_sett.xml" value="0.2483108108108108" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/bg_react.xml" value="0.2483108108108108" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/button_style.xml" value="0.16587837837837838" />
@@ -21,12 +24,13 @@
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/dg_caritem.xml" value="0.2483108108108108" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/dialog_bg.xml" value="0.2483108108108108" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/ic_launcher_background.xml" value="0.16587837837837838" />
+        <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/iconaplication_background.xml" value="0.20304054054054055" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/person_one.xml" value="0.3828125" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/rectangle_5.xml" value="0.2483108108108108" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/settings_butt.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/drawable/style_black_btn.xml" value="0.2483108108108108" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/activity_first_loadig_menu.xml" value="0.16" />
-        <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/activity_friends.xml" value="0.1" />
+        <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/activity_friends.xml" value="0.22" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/activity_login.xml" value="0.16" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/activity_profile.xml" value="0.16" />
@@ -57,6 +61,8 @@
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/toolbar_new.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/user_doing.xml" value="0.1" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/layout/user_item.xml" value="0.22" />
+        <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.20304054054054055" />
+        <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/mipmap-anydpi-v26/iconaplication_round.xml" value="0.20304054054054055" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/mipmap-xxxhdpi/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Users/Dana/AndroidStudioProjects/smile_ukraine/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.xml" value="0.1668896321070234" />
       </map>
@@ -67,5 +73,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.18" />
+      </ProjectState>
+    </option>
   </component>
 </project>

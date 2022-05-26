@@ -18,12 +18,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="140dp"
-            android:fontFamily="@font/aclonica"
+            android:fontFamily="@font/reem_kufi"
             android:text="Login"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="40dp"
-            android:textStyle="bold" />
+            android:textSize="40dp"/>
 
         <TextView
             android:id="@+id/Text_email_login"
@@ -31,11 +30,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/user_name"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/b612_mono"
+            android:fontFamily="@font/reem_kufi"
             android:text="@string/text_enter_email"
             android:textColor="@color/white"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+            android:textSize="18dp" />
 
         <EditText
             android:layout_width="match_parent"
@@ -50,11 +48,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/email"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/b612_mono"
+            android:fontFamily="@font/reem_kufi"
             android:text="@string/text_enter_password"
             android:textColor="@color/white"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+            android:textSize="18dp"/>
 
         <EditText
             android:id="@+id/editText_pass_login"
@@ -69,10 +66,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="5dp"
-            android:fontFamily="@font/b612_mono"
+            android:fontFamily="@font/reem_kufi"
             android:text="@string/text_hae_acc"
             android:textColor="@color/gray_400"
-            android:textStyle="bold"
             android:textSize="14dp"/>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -82,11 +78,10 @@
             android:layout_gravity="center"
             android:layout_marginTop="160dp"
             android:background="@drawable/bg_button_logandreg"
-            android:fontFamily="@font/b612_mono"
+            android:fontFamily="@font/reem_kufi"
             android:text="@string/text_login"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="20sp" />
 
 
     </LinearLayout>

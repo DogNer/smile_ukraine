@@ -3,13 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
-
+    android:padding="8dp"
+    android:background="@drawable/bg_button_white"
+    android:elevation="10dp"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="5dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_marginHorizontal="15dp"
         android:orientation="vertical"
         android:layout_centerVertical="true">
 
@@ -17,7 +20,7 @@
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/aclonica"
+            android:fontFamily="@font/reem_kufi"
             android:text="Username"
             android:textColor="@color/black"
             android:textSize="24dp"
@@ -32,12 +35,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginHorizontal="20dp"
-        android:background="@drawable/color_btn_user"
-        android:fontFamily="@font/aclonica"
+        android:background="@drawable/bd_card_add_friends"
+        android:elevation="50dp"
+        android:fontFamily="@font/reem_kufi"
         android:gravity="center"
         android:text="Invite"
         android:textSize="18dp"
         android:textStyle="bold"
-        android:visibility="gone" />
+        android:visibility="visible" />
 
 </RelativeLayout>

@@ -3,7 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:padding="18dp"
+    android:background="@drawable/bd_card_add_friends"
+    android:elevation="8dp"
+    android:layout_margin="10dp"
+    >
 
 
     <LinearLayout
@@ -17,7 +21,7 @@
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/aclonica"
+            android:fontFamily="@font/reem_kufi"
             android:text="Username"
             android:textColor="@color/black"
             android:textSize="24dp"
