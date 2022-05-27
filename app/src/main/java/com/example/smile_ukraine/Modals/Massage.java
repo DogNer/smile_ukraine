@@ -1,14 +1,18 @@
 package com.example.smile_ukraine.Modals;
 
+import java.util.Map;
+
 public class Massage {
     private String sender;
     private String receiver;
     private String massage;
+    private String time;
 
-    public Massage(String sender, String receiver, String massage) {
+    public Massage(String sender, String receiver, String massage, String time) {
         this.sender = sender;
         this.receiver = receiver;
         this.massage = massage;
+        this.time = time;
     }
 
     public Massage() {
@@ -36,5 +40,13 @@ public class Massage {
 
     public void setMassage(String massage) {
         this.massage = massage;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

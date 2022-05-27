@@ -29,10 +29,17 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.Time;
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
+import java.util.zip.DataFormatException;
 
 public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHolder> {
 
@@ -151,11 +158,15 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
 
     private void sendMassage(String sender, String receiver, String massage){
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        DateFormat df  = DateFormat.getDateInstance(DateFormat.DEFAULT);
+        //, Locale.FRANCE
+        String now = df.format( new Date());
 
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("sender", sender);
         hashMap.put("receiver", receiver);
         hashMap.put("massage", massage);
+        hashMap.put("time", now);
 
         reference.child("Massages").child(receiver).push().setValue(hashMap);
     }

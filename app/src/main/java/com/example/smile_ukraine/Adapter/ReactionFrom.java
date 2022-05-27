@@ -1,7 +1,6 @@
 package com.example.smile_ukraine.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.example.smile_ukraine.LoginActivity;
-import com.example.smile_ukraine.MainActivity;
 import com.example.smile_ukraine.Modals.Massage;
 import com.example.smile_ukraine.Modals.User;
 import com.example.smile_ukraine.R;
-import com.firebase.ui.auth.viewmodel.AuthViewModelBase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -51,10 +46,10 @@ public class ReactionFrom extends RecyclerView.Adapter<ReactionFrom.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
         Massage massage = mMassage.get(position);
 
         holder.textEmotion.setText(massage.getMassage());
+        holder.time_when_was_send.setText(massage.getTime());
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users").child(massage.getSender());
 
@@ -81,7 +76,7 @@ public class ReactionFrom extends RecyclerView.Adapter<ReactionFrom.ViewHolder>{
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView textEmotion, textSender;
+        public TextView textEmotion, textSender, time_when_was_send;
         //public CircleImageView image_profile;
         public Button btn_share;
 
@@ -90,6 +85,7 @@ public class ReactionFrom extends RecyclerView.Adapter<ReactionFrom.ViewHolder>{
 
             textSender = itemView.findViewById(R.id.from_username);
             textEmotion = itemView.findViewById(R.id.text_emotion);
+            time_when_was_send = itemView.findViewById(R.id.time_send);
         }
     }
 

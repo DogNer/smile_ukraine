@@ -21,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class SendingReactionFrom extends AppCompatActivity {
@@ -73,10 +74,17 @@ public class SendingReactionFrom extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 userList.clear();
+                List<Massage> list = new ArrayList<>();
+
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Massage user = snapshot.getValue(Massage.class);
 
-                    userList.add(user);
+                    list.add(user);
+                }
+                Collections.reverse(list);
+
+                for (int i = 0; i < list.size(); ++i){
+                    userList.add(list.get(i));
                 }
                 reactionFrom.notifyDataSetChanged();
             }
