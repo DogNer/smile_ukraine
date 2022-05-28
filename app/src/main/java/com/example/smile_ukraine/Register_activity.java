@@ -118,6 +118,7 @@ public class Register_activity extends AppCompatActivity {
                             hasMap.put("phone_number", phone_number.toLowerCase());
                             hasMap.put("password", password.toLowerCase());
                             hasMap.put("email", email.toLowerCase());
+                            hasMap.put("imageUri", "https://firebasestorage.googleapis.com/v0/b/smile-ua-d589c.appspot.com/o/personimg.png?alt=media&token=574f77d8-0cab-4de5-a5db-3185af3ebbf0");
 
                             reference.setValue(hasMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

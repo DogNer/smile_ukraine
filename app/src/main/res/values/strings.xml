@@ -45,4 +45,5 @@
     <string name="text_change_emotion">How change emotion?</string>
     <string name="text_change_personal_color">How change personal color?</string>
     <string name="text_send_reaction">How send the reaction?</string>
+    <string name="text_edit_photo">Edit your photo</string>
 </resources>

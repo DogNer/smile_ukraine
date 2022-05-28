@@ -60,7 +60,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        btnBack = findViewById(R.id.btn_back);
+        btnBack = findViewById(R.id.btn_cencel);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

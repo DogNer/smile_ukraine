@@ -3,7 +3,10 @@ package com.example.smile_ukraine.screen;
 import static androidx.core.app.NotificationCompat.getPublicVersion;
 import static androidx.core.app.NotificationCompat.getVisibility;
 
+import android.app.Activity;
 import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +16,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.Gravity;
@@ -21,13 +25,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.webkit.MimeTypeMap;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.smile_ukraine.LoginActivity;
+import com.example.smile_ukraine.MenuInSett.UploadPhoto;
 import com.example.smile_ukraine.Modals.User;
 import com.example.smile_ukraine.MenuInSett.ProfileActivity;
 import com.example.smile_ukraine.R;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -37,6 +50,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.dynamiclinks.DynamicLink;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
+import com.google.firebase.storage.UploadTask;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
+
+import java.util.HashMap;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Personal_settings extends Fragment {
 
@@ -59,7 +81,7 @@ public class Personal_settings extends Fragment {
         return fragment;
     }
 
-    TextView username, emailUser, numberUser, editNameBtn, addFriends, supportBtn, addAccountBtn;
+    TextView username, emailUser, numberUser, editNameBtn, addFriends, supportBtn, addAccountBtn, editPhotoText;
     FirebaseUser firebaseUser;
     String profileid;
     User userId;
@@ -70,6 +92,7 @@ public class Personal_settings extends Fragment {
     ImageButton btnback;
     int cnt = 0;
     boolean check = false;
+    CircleImageView pers_photo;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -97,6 +120,9 @@ public class Personal_settings extends Fragment {
         editNameBtn = view.findViewById(R.id.edit_name);
         addAccountBtn = view.findViewById(R.id.add_account_btn);
         addFriends = view.findViewById(R.id.add_friends);
+        pers_photo = view.findViewById(R.id.personal_photo);
+        editPhotoText = view.findViewById(R.id.edit_photo);
+
 
         editNameBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,6 +149,14 @@ public class Personal_settings extends Fragment {
             }
         });
 
+        editPhotoText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), UploadPhoto.class);
+                startActivity(intent);
+            }
+        });
+
         userInfo();
 
         return view;
@@ -144,6 +178,7 @@ public class Personal_settings extends Fragment {
         return link.getUri();
     }
 
+
     private void onShareClicked() {
         //DynamicLinksUtil.generateContentLink();
         Uri link = generateContentLink();
@@ -163,6 +198,7 @@ public class Personal_settings extends Fragment {
                 if (getContext() != null){
                     User user = snapshot.getValue(User.class);
 
+                    Glide.with(getContext()).load(user.getImageUri()).into(pers_photo);
                     username.setText(user.getUsername());
                     emailUser.setText(user.getEmail());
                     numberUser.setText(user.getPhone_number());
@@ -221,5 +257,7 @@ public class Personal_settings extends Fragment {
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.BOTTOM);
     }
+
+
 
 }

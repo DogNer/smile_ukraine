@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuInSett.ProfileActivity"
+    tools:context=".MenuInSett.UploadPhoto"
     android:orientation="vertical"
     android:background="@drawable/fon_main2">
 
@@ -41,7 +41,6 @@
         </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
-
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -59,57 +58,5 @@
         android:textSize="14dp"
         android:textColor="@color/black"
         android:fontFamily="@font/reem_kufi"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center_horizontal"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginVertical="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginVertical="10dp"
-            android:fontFamily="@font/reem_kufi"
-            android:text="@string/text_name"
-            android:textColor="@color/black"
-            android:textSize="28dp"
-            android:textStyle="bold" />
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            app:cardCornerRadius="20dp"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginVertical="10dp">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Change Name"
-                android:gravity="center"
-                android:id="@+id/edit_name"/>
-
-        </androidx.cardview.widget.CardView>
-
-    </LinearLayout>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnSave"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginVertical="20dp"
-        android:background="@drawable/bd_card_add_friends"
-        android:elevation="8dp"
-        android:fontFamily="@font/reem_kufi"
-        android:text="@string/text_save"
-        android:textColor="@color/black"
-        android:textSize="24dp"
-        android:textStyle="bold" />
 
 </LinearLayout>

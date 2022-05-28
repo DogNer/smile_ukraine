@@ -6,6 +6,7 @@ import androidx.appcompat.widget.ViewUtils;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabLayoult);
         viewPager = findViewById(R.id.viewPager);
 
+        tabLayout.setBackgroundColor(Color.TRANSPARENT);
 /*        toolbar = findViewById(R.id.myToolBar);
         setSupportActionBar(toolbar);*/
 

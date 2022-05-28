@@ -5,13 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,6 +53,8 @@ public class FriendsActivity extends AppCompatActivity {
     AppCompatButton btn_invite;
     CardView cardInvite;
     int cnt = 0;
+    NotificationManagerCompat notificationManagerCompat;
+    Notification notification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,8 +96,13 @@ public class FriendsActivity extends AppCompatActivity {
         idList = new ArrayList<>();
 
         getFriend();
+
+
     }
 
+    public void embracePush(View view){
+        notificationManagerCompat.notify(1, notification);
+    }
 
     private void getFriend(){
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Follow")
@@ -130,6 +143,7 @@ public class FriendsActivity extends AppCompatActivity {
                         }
                     }
                 }
+
                 friendsAdapter.notifyDataSetChanged();
             }
 
@@ -165,4 +179,6 @@ public class FriendsActivity extends AppCompatActivity {
 
         startActivity(Intent.createChooser(intent, "Share Link"));
     }
+
+
 }

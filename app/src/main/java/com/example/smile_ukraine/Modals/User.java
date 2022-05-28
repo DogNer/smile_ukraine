@@ -9,15 +9,16 @@ public class User {
     private String bio;
     private String email;
     private String emotion;
+    private String imageUri;
 
-    public User(String id, String username, String phone_number, String bio, String email, String emotion) {
-
+    public User(String id, String username, String phone_number, String bio, String email, String emotion, String imageUri) {
         this.id = id;
         this.username = username;
         this.phone_number = phone_number;
         this.bio = bio;
         this.email = email;
         this.emotion = emotion;
+        this.imageUri = imageUri;
     }
 
     public String getEmotion() {
@@ -69,5 +70,13 @@ public class User {
 
     public void setBio(String bio) {
         this.bio = bio;
+    }
+
+    public String getImageUri() {
+        return imageUri;
+    }
+
+    public void setImageUri(String imageUri) {
+        this.imageUri = imageUri;
     }
 }
