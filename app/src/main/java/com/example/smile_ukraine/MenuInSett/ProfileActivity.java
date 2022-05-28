@@ -30,7 +30,7 @@ import java.util.HashMap;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    EditText username;
+    EditText username, phoneNumber;
     ImageButton btnBack;
     Button btn_save;
 
@@ -42,6 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         username = findViewById(R.id.edit_name);
+        phoneNumber = findViewById(R.id.edit_number);
         btn_save = findViewById(R.id.btnSave);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -51,6 +52,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
+
                 username.setText(user.getUsername());
             }
 

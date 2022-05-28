@@ -13,6 +13,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -50,6 +52,9 @@ public class UploadPhoto extends AppCompatActivity {
 
     ImageButton btnCencel;
 
+    EditText username, phoneNumber;
+    Button btn_save;
+
     private Uri mImageUri;
     private StorageTask uploadTask;
     StorageReference storageRef;
@@ -59,18 +64,24 @@ public class UploadPhoto extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_photo);
 
+        username = findViewById(R.id.edit_name);
         image_profile = findViewById(R.id.image_photo);
         btnCencel = findViewById(R.id.btn_cencel);
+        btn_save = findViewById(R.id.btnSave);
+        phoneNumber = findViewById(R.id.edit_number);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         storageRef = FirebaseStorage.getInstance().getReference("uploads");
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
 
+                username.setText(user.getUsername());
+                phoneNumber.setText(user.getPhone_number());
                 Glide.with(getApplicationContext()).load(user.getImageUri()).into(image_profile);
             }
 
@@ -96,6 +107,23 @@ public class UploadPhoto extends AppCompatActivity {
                         .start(UploadPhoto.this);
             }
         });
+
+        btn_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateProfile(username.getText().toString(), phoneNumber.getText().toString());
+            }
+        });
+    }
+
+    private void updateProfile(String username, String phoneNumber) {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("username", username);
+        hashMap.put("phone_number", phoneNumber);
+
+        reference.updateChildren(hashMap);
     }
 
     private String getFileExtension(Uri uri){

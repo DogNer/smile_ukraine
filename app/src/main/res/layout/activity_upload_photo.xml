@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,7 +11,8 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:id="@+id/toolbar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,28 +36,141 @@
                 android:fontFamily="@font/reem_kufi"
                 android:text="Edit profile"
                 android:textColor="@color/black"
-                android:textSize="24dp"
-                android:textStyle="bold" />
+                android:textSize="24dp"/>
 
         </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:id="@+id/image_photo"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"/>
 
-    <TextView
-        android:layout_marginTop="10dp"
-        android:id="@+id/text_image_photo"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Change photo"
-        android:gravity="center"
-        android:textSize="14dp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/reem_kufi"/>
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/photo_info">
 
-</LinearLayout>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/image_photo"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/text_image_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/reem_kufi"
+            android:gravity="center"
+            android:text="Set a new photo"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/black"
+            android:layout_marginTop="30dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/change_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/photo_info"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_margin="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/person_image" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:fontFamily="@font/reem_kufi"
+                android:text="Name"
+                android:textColor="@color/black"
+                android:textSize="22dp" />
+
+            <EditText
+                android:id="@+id/edit_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:fontFamily="@font/reem_kufi"
+                android:text="@string/text_edit_name"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="22dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/number_image" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:fontFamily="@font/reem_kufi"
+                android:text="Number"
+                android:textColor="@color/black"
+                android:textSize="22dp" />
+
+            <EditText
+                android:id="@+id/edit_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:fontFamily="@font/reem_kufi"
+                android:text="@string/text_edit_name"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="22dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|center"
+        android:layout_marginHorizontal="100dp"
+        android:background="@drawable/bd_card_add_friends"
+        android:elevation="8dp"
+        android:fontFamily="@font/reem_kufi"
+        android:text="@string/text_save"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:layout_marginVertical="30dp"/>
+
+</RelativeLayout>
