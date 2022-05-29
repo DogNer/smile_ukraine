@@ -108,33 +108,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/editimage"
-                        />
-
-                    <TextView
-                        android:id="@+id/edit_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="15dp"
-                        android:fontFamily="@font/reem_kufi"
-                        android:text="@string/text_edit_name"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginVertical="10dp"
-                    android:gravity="center_vertical"
-                    android:layout_marginHorizontal="15dp">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/change_photo"/>
+                        android:src="@drawable/change_star_btn"/>
 
                     <TextView
                         android:id="@+id/edit_photo"
@@ -142,7 +116,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="15dp"
                         android:fontFamily="@font/reem_kufi"
-                        android:text="@string/text_edit_photo"
+                        android:text="Change your profile"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 

@@ -117,20 +117,10 @@ public class Personal_settings extends Fragment {
         username = view.findViewById(R.id.userName);
         emailUser = view.findViewById(R.id.emailUser);
         numberUser = view.findViewById(R.id.numberUser);
-        editNameBtn = view.findViewById(R.id.edit_name);
         addAccountBtn = view.findViewById(R.id.add_account_btn);
         addFriends = view.findViewById(R.id.add_friends);
         pers_photo = view.findViewById(R.id.personal_photo);
         editPhotoText = view.findViewById(R.id.edit_photo);
-
-
-        editNameBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ProfileActivity.class);
-                startActivity(intent);
-            }
-        });
 
         addAccountBtn.setOnClickListener(new View.OnClickListener() {
             @Override
